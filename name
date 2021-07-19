@@ -1,22 +1,30 @@
-from tkinter import
+import mysql.connector
 
-class name:
-  
-  def add():
-  def update():
-  def delete():
-  def searche():
-
-class bid:
-
-  def add():
-  def update():
-  def delete():
-  def searche():
-
-calss Table_of_Qty:
-  
-  def add():
-  def update():
-  def delete():
-  def searche():
+class Name:
+    def __init__(self,root):
+        calldata = mysql.connector.connect(user="root", host="localhost", password="12345678", database="tender")
+        print(calldata)
+        self.root = ID
+        self.root = Name
+        self.root = Job_Title
+        self.root = Job_Number
+        self.root = Qualification
+        self.root = Nationality
+        self.root = Salary
+        self.root = Housing_allowance
+        self.root = Trans_allowance
+        self.root = Health_Insurance
+        self.root = Annual_Tickets
+        self.root = Phone_Charge
+        self.root = Work_license
+        self.root = Residence_permit
+        self.root = SCE
+        self.root = GOSI
+        def Add():
+            INSERT INTO table(c1, c2, ...) VALUES(v1, v2, ...);
+        def Search():
+            call_name = SELECT Name FROM name;
+        def Update():
+            UPDATE[LOW_PRIORITY][IGNORE] name SET column_name1 = expr1, column_name2 = expr2, [WHERE condition];
+        def Delete():
+            DELETE FROM name WHERE condition;
