@@ -1,0 +1,22 @@
+from tkinter import
+
+class name:
+  
+  def add():
+  def update():
+  def delete():
+  def searche():
+
+class bid:
+
+  def add():
+  def update():
+  def delete():
+  def searche():
+
+calss Table_of_Qty:
+  
+  def add():
+  def update():
+  def delete():
+  def searche():
