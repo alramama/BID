@@ -1,0 +1,19 @@
+creation = mysql.connector.connect(host="localhost", user="root", password="12345678", database="naizak")
+cursor = creation.cursor()
+cursor.execute("create table BID (Work_Order int(20) not null primary key,
+               RFQ_No int(20)
+               name varchar(20),
+               Tender_Name varchar(20),
+               Tender_NO varchar(20),
+               Bid_Type varchar(20),
+               Received_Date varchar(20),
+               Closing_Date varchar(20),
+               Evaluation Completion date varchar(20),
+               END_User varchar(20),
+               As_per_Standerd varchar(20),
+               Tender_documents varchar(20),
+               Execution_Time varchar(20),
+               )")
+creation.commit()
+creation.close()
+
