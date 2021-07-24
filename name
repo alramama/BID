@@ -2,31 +2,54 @@ import mysql.connector
 
 class Name:
     def __init__(self,root):
-        calldata = mysql.connector.connect(user="root", host="localhost", password="12345678", database="tender")
-        print(calldata)
-        ID = StringVar()
-        Name= StringVar()
-        Job_Title= StringVar()
-        Job_Number= StringVar()
-        Qualification= StringVar()
-        Nationality= StringVar()
-        Salary = StringVar()
-        Housing_allowance = StringVar()
-        Trans_allowance = StringVar()
-        Health_Insurance = StringVar()
-        Annual_Tickets = StringVar()
-        Phone_Charge = StringVar()
-        Work_license = StringVar()
-        Residence_permit = StringVar()
-        SCE = StringVar()
-        GOSI = StringVar()
-        
+
+        def craete_table():
+            creation = mysql.connector.connect(host="localhost", user="root", password="12345678", database="naizak")
+            cursor = creation.cursor()
+            cursor.execute("create table BID (Work_Order int(20) not null primary key,
+                            RFQ_No int(20)
+                            name varchar(20),
+                            Tender_Name varchar(20),
+                            Tender_NO varchar(20),
+                            Bid_Type varchar(20),
+                            Received_Date varchar(20),
+                            Closing_Date varchar(20),
+                            Evaluation Completion date varchar(20),
+                            END_User varchar(20),
+                            As_per_Standerd varchar(20),
+                            Tender_documents varchar(20),
+                            Execution_Time varchar(20),
+                            )")
+            creation.commit()
+            creation.close()
+
         def Add():
-            sqlcon = mysql.connector.connect(host="localhost", user="root", password="12345678", database="naizak")
-            cursor = sqlcon.cursor()
-            cursor.execute("INSERT INTO nps_new VALUES (%s, %s, %s,%s,%s)" ,(ID.get(),NAME.get(),Eqamano.get(),BirthDay.get(),BloodGroup.get(),))
-            sqlcon.commit()
-            sqlcon.close()
+            adding = mysql.connector.connect(host="localhost", user="root", password="12345678", database="naizak")
+            cursor = adding.cursor()
+            addvalue = "insert into BID(
+                                        Name,
+                                        RFQ_No,
+                                        Tender_Name,
+                                        Tender_NO,
+                                        Bid_Type,
+                                        Received_Date,
+                                        Closing_Date,
+                                        Evaluation Completion date,
+                                        END_User,
+                                        Site_Location,
+                                        As_per_Standerd,
+                                        Tender_documents,
+                                        Execution_Time)
+                                        values(%s, %s, %s, %s, %s,%s, %s, %s, %s, %s,%s,%s,%s)"
+            values = ("", "", "", "", "","", "", "", "", "","","","")
+            try:
+                cursor.execute(addvalue,values) 
+                adding.commit()
+            except:  
+                adding.rollback()
+            print(cursor.rowcount,"record inserted!")  
+            adding.close()
+            
         def Search():
             sqlcon = mysql.connector.connect(host="localhost", user="root", password="12345678", database="naizak")
             cursor = sqlcon.cursor()
