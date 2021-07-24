@@ -8,77 +8,17 @@ root = Tk()
 root.geometry("1350x650+0+0")
 root.title("")
 
-NAME = StringVar()
-Emplyer = StringVar()
-HoursWorked = StringVar()
-Tax = StringVar()
-GrossPay = StringVar()
-Address = StringVar()
-NINumber = StringVar()
-HourlyRate = StringVar()
-OverTime = StringVar()
-NetPay = StringVar()
-DateOfOrder = StringVar()
-DateOfOrder.set(time.strftime("%d/%m/%Y"))
-
 # ====================================================Frame===================================================================
-
 TOP_Frame = Frame(root, bd=16, width=1350, height=50, relief=RAISED)
 TOP_Frame.pack(side=TOP)
-
 F1 = Frame(root, bd=16, width=600, height=600, relief=RAISED)
 F1.pack(side=LEFT)
-
 F2 = Frame(root, bd=16, width=300, height=600, relief=RAISED)
 F2.pack(side=RIGHT)
-
 F1a = Frame(F1, bd=16, width=600, height=200, relief=RAISED)
 F1a.pack(side=TOP)
-
 F1b = Frame(F1, bd=16, width=600, height=600, relief=RAISED)
 F1b.pack(side=TOP)
-
-
-def Exit():
-    root.destroy()
-
-
-def Rest():
-    NAME.set("")
-    Emplyer.set("")
-    HoursWorked.set("")
-    Tax.set("")
-    GrossPay.set("")
-    Address.set("")
-    NINumber.set("")
-    HourlyRate.set("")
-    OverTime.set("")
-    NetPay.set("")
-    DateOfOrder.set("")
-    DateOfOrder.set(time.strftime("%d/%m/%Y"))
-    EntryPaySlip.delete("1.0", END)
-
-
-def EntryInfo():
-    EntryPaySlip.insert(END, "\tPayslip\n\n")
-    EntryPaySlip.insert(END, 'Date:\t' + DateOfOrder.get() + '\n\n')
-    EntryPaySlip.insert(END, 'NAME:\t' + NAME.get() + '\n')
-    EntryPaySlip.insert(END, 'Emplyer:\t' + Emplyer.get() + '\n')
-    EntryPaySlip.insert(END, 'HoursWorked:\t' + HourlyRate.get() + '\n')
-    EntryPaySlip.insert(END, 'Tax:\t' + Tax.get() + '\n')
-    EntryPaySlip.insert(END, 'GrossPay:\t' + GrossPay.get() + '\n')
-    EntryPaySlip.insert(END, 'Address:\t' + NAME.get() + '\n')
-    EntryPaySlip.insert(END, 'NINumber:\t' + NINumber.get() + '\n')
-    EntryPaySlip.insert(END, 'HourlyRate:\t' + HourlyRate.get() + '\n')
-    EntryPaySlip.insert(END, 'OverTime:\t' + OverTime.get() + '\n')
-    EntryPaySlip.insert(END, 'NetPay:\t' + NetPay.get() + '\n')
-    EntryPaySlip.insert(END, 'DateOfOrder:\t' + DateOfOrder.get() + '\n')
-
-
-def WeeklySalary():
-    return
-
-
 
 # ================================================================MainLable============================================
 
@@ -119,20 +59,9 @@ lblOverTime.grid(row=3, column=3)
 lblNetPay = Entry(F1a, font=('arial', 16, 'bold'), text="Net Pay", textvariable=NetPay, fg="black", bd=20)
 lblNetPay.grid(row=4, column=3)
 # =====================================================================TEXT===================================================================
-
-def print():
-    q = EntryPaySlip.get("1.0","end")
-    filname = tempfile.mktemp(".doc")
-    open(filname,"w").write(q)
-    os.startfile(filname,"print")
-
 lblPaySlip = Label(F2, font=('arial', 16, 'bold'), textvariable=DateOfOrder, fg="black", bd=20).grid(row=0, column=0)
 EntryPaySlip = Text(F2, font=('arial', 16, 'bold'), bd=20, width=22, height=15)
 EntryPaySlip.grid(row=2, column=0)
-
-
-
-
 
 # ===============================================================Button=======================================================================
 btnSalary = Button(F1b, text="Weekly Salary", padx=16, pady=16, bd=8, fg="black", font=('arial', 16, 'bold'), width=14,height=1, command = print).grid(row=0, column=0)
