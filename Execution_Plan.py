@@ -9,7 +9,33 @@ Execution_Plan.geometry("800x1000+0+0")
 Execution_Plan.title("EXECUTION PLAN INFORMATION")
 #Execution Plan_Type = ["Sales","Service","Contracts"]
 #Customer = ["Gov","SEC","ARAMCO","SABIC","SWCC","NWC"]
+#=====================================================mysql.connector===============================================
+import mysql.connector
+conn = mysql.connector.connect(user = 'root',password= "", host = 'localhost',database = 'tender')
+print(conn)
+conn.close()
+#===================================================================Mysql.Create table===============================================
+import mysql.connector
+conn = mysql.connector.connect(user = 'root',password= "", host = 'localhost',database = 'tender')
+mycursor = conn.cursor()
+mycursor.execute("CREATE TABLE Execution_Plan (name VARCHAR(255), address VARCHAR(255))")
 
+RFQ_No
+Item_Name
+Item_type
+Quantity
+Start_date
+END_date
+Quantity
+Duration
+Engineers
+Tech
+Day_Cost
+Bid Table
+
+conn.close()
+#=======================================================================Combobox========================================================
+RFQ_No = []
 #===================================================================EXECUTION PLANTopFram=================================================
 #EXECUTION PLAN_Page_title = Frame(EXECUTION PLAN, bd=16, width=1350, height=60, relief=RAISED)
 #EXECUTION PLAN_Page_title.pack(side=TOP)
