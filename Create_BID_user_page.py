@@ -30,6 +30,39 @@ mycursor.execute("CREATE TABLE BID("
                  "Execution_Time VARCHAR(255),"
                  "As_per_Standerd VARCHAR(255))")
 conn.close()
+#====================================================================INSERT
+def insert():
+    sqlcon = mysql.connector.connect(host="localhost", user="root", password="12345678", database="naizak")
+    cursor = sqlcon.cursor()
+    cursor.execute("INSERT INTO nps_new VALUES (%s, %s, %s,%s,%s)",(ID.get(), NAME.get(), Eqamano.get(), BirthDay.get(), BloodGroup.get(),))
+    sqlcon.commit()
+    sqlcon.close()
+
+
+conn.close()
+#=====================================================Update
+        def Update():
+            sqlcon = mysql.connector.connect(host="localhost", user="root", password="12345678", database="naizak")
+            cursor = sqlcon.cursor()
+            cursor.execute("update nps_new set  NAME=%s, Eqamano=%s,Birthday=%s,BloodGroup=%s where ID=%s "
+                           ,(NAME.get(),Eqamano.get(),BirthDay.get(),BloodGroup.get(),ID.get()))
+            sqlcon.commit()
+#======================================================search
+        def search():
+            sqlcon = mysql.connector.connect(host="localhost", user="root", password="12345678", database="naizak")
+            cursor = sqlcon.cursor()
+            cursor.execute("select * from nps_new where ID='%s'" %ID.get())
+
+            row = cursor.fetchall()
+
+            ID.set(row[0])
+            NAME.set(row[1])
+            Eqamano.set(row[2])
+            BirthDay.set(row[3])
+            BloodGroup.set(row[4])
+
+            sqlcon.commit()
+            sqlcon.close()
 #=====================================================Combobox
 NAME = []
 Postion= []
@@ -55,6 +88,7 @@ BID_MainFrame.grid(row=0, column=0)
 #===================================================================Bid_Cost_Eng.=================================================
 FRAM_Bid_Cost_Eng = Frame(BID_MainFrame, bd=16, width=700, height=600, relief=RIDGE )
 FRAM_Bid_Cost_Eng.grid(row=0, column=0)
+
 lbl_WorkOrder =             Label(FRAM_Bid_Cost_Eng, font=('arial', 6, 'bold'),text="WorkOrder",         fg="black", bd=5).grid(row=1, column=0)
 lbl_ENG =                   Label(FRAM_Bid_Cost_Eng, font=('arial', 6, 'bold'),text="NAME",              fg="black", bd=5).grid(row=2, column=0)
 lbl_Postion =               Label(FRAM_Bid_Cost_Eng, font=('arial', 6, 'bold'),text="Postion",           fg="black", bd=5).grid(row=3, column=0)
