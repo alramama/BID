@@ -9,7 +9,28 @@ BID.geometry("800x1000+0+0")
 BID.title("BID INFORMATION")
 #Bid_Type = ["Sales","Service","Contracts"]
 #Customer = ["Gov","SEC","ARAMCO","SABIC","SWCC","NWC"]
-
+#=====================================================mysql.connector===============================================
+import mysql.connector
+conn = mysql.connector.connect(user = 'root',password= "", host = 'localhost',database = 'tender')
+print(conn)
+conn.close()
+#=====================================================Mysql.Create table===============================================
+import mysql.connector
+conn = mysql.connector.connect(user = 'root',password= "", host = 'localhost',database = 'tender')
+mycursor = conn.cursor()
+mycursor.execute("CREATE TABLE BID (name VARCHAR(255), address VARCHAR(255))")
+conn.close()
+#=====================================================Combobox
+NAME = []
+Postion= []
+Nationlty= []
+Customer= []
+RFQ_No= []
+Tender_Name = []
+Bid_Type = []
+EvaluationDate = [] 
+Execution_Time = []
+As_per_Standerd = []
 #===================================================================BIDTopFram=================================================
 #BID_Page_title = Frame(BID, bd=16, width=1350, height=60, relief=RAISED)
 #BID_Page_title.pack(side=TOP)
