@@ -9,6 +9,30 @@ Proposed_Table_of_Qty.geometry("800x1000+0+0")
 Proposed_Table_of_Qty.title("PROPOSED_TABLE_OF_QTY INFORMATION")
 #Proposed_Table_of_Qty_Type = ["Sales","Service","Contracts"]
 #Customer = ["Gov","SEC","ARAMCO","SABIC","SWCC","NWC"]
+#=====================================================mysql.connector===============================================
+import mysql.connector
+conn = mysql.connector.connect(user = 'root',password= "", host = 'localhost',database = 'tender')
+print(conn)
+conn.close()
+#===================================================================Mysql.Create table===============================================
+import mysql.connector
+conn = mysql.connector.connect(user = 'root',password= "", host = 'localhost',database = 'tender')
+mycursor = conn.cursor()
+mycursor.execute("CREATE TABLE Proposed_Table_of_Qty (name VARCHAR(255), address VARCHAR(255))")
+RFQ_No
+Item_Name
+Item_type
+Quantity
+Unit
+Unit_price
+Total_price
+Tax
+Total_Price_TAX
+Bid_Table
+YES_No
+conn.close()
+#=======================================================================Combobox========================================================
+RFQ_No = []
 
 #===================================================================PROPOSED_TABLE_OF_QTYTopFram=================================================
 #PROPOSED_TABLE_OF_QTY_Page_title = Frame(PROPOSED_TABLE_OF_QTY, bd=16, width=1350, height=60, relief=RAISED)
