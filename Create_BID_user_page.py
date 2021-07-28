@@ -16,9 +16,19 @@ print(conn)
 conn.close()
 #=====================================================Mysql.Create table===============================================
 import mysql.connector
-conn = mysql.connector.connect(user = 'root',password= "", host = 'localhost',database = 'tender')
+conn = mysql.connector.connect(user = 'root',password= "12345678", host = 'localhost',database = 'tender')
 mycursor = conn.cursor()
-mycursor.execute("CREATE TABLE BID (name VARCHAR(255), address VARCHAR(255))")
+mycursor.execute("CREATE TABLE BID("
+                 "Name VARCHAR(255),"
+                 "Postion VARCHAR(255),"
+                 "Nationlty VARCHAR(255),"
+                 "Customer VARCHAR(255),"
+                 "RFQ_No VARCHAR(255),"
+                 "Tender_Name VARCHAR(255),"
+                 "Bid_Type VARCHAR(255),"
+                 "EvaluationDate VARCHAR(255),"
+                 "Execution_Time VARCHAR(255),"
+                 "As_per_Standerd VARCHAR(255))")
 conn.close()
 #=====================================================Combobox
 NAME = []
