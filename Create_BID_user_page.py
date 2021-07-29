@@ -9,6 +9,18 @@ BID.geometry("800x1000+0+0")
 BID.title("BID INFORMATION")
 #Bid_Type = ["Sales","Service","Contracts"]
 #Customer = ["Gov","SEC","ARAMCO","SABIC","SWCC","NWC"]
+#=====================================================المتغيرات=========================================================
+Name = StringVar()
+Postion = StringVar()
+Nationlty = StringVar()
+Customer = StringVar()
+RFQ_No = StringVar()
+Tender_Name = StringVar()
+Bid_Type = StringVar()
+EvaluationDate = StringVar()
+Execution_Time = StringVar()
+As_per_Standerd = StringVar()
+
 #=====================================================mysql.connector===============================================
 import mysql.connector
 conn = mysql.connector.connect(user = 'root',password= "", host = 'localhost',database = 'tender')
@@ -34,39 +46,85 @@ conn.close()
 def insert():
     sqlcon = mysql.connector.connect(host="localhost", user="root", password="12345678", database="naizak")
     cursor = sqlcon.cursor()
-    cursor.execute("INSERT INTO nps_new VALUES (%s, %s, %s,%s,%s)",(ID.get(), NAME.get(), Eqamano.get(), BirthDay.get(), BloodGroup.get(),))
+    cursor.execute("INSERT INTO BID VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)",
+                   (Name.get(),
+                    Postion.get(),
+                    Nationlty.get(),
+                    Customer.get(),
+                    RFQ_No.get(),
+                    Tender_Name.get(),
+                    Bid_Type.get(),
+                    EvaluationDate.get(),
+                    Execution_Time.get(),
+                    As_per_Standerd.get()))
     sqlcon.commit()
     sqlcon.close()
 
 
 conn.close()
 #=====================================================Update
-        def Update():
+    def insert():
+    sqlcon = mysql.connector.connect(host="localhost", user="root", password="12345678", database="naizak")
+    cursor = sqlcon.cursor()
+    cursor.execute("INSERT INTO BID VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)",
+                   (Name.get(),
+                    Postion.get(),
+                    Nationlty.get(),
+                    Customer.get(),
+                    RFQ_No.get(),
+                    Tender_Name.get(),
+                    Bid_Type.get(),
+                    EvaluationDate.get(),
+                    Execution_Time.get(),
+                    As_per_Standerd.get()))
+    sqlcon.commit()
+    sqlcon.close()
+    
+    def Update():
             sqlcon = mysql.connector.connect(host="localhost", user="root", password="12345678", database="naizak")
             cursor = sqlcon.cursor()
-            cursor.execute("update nps_new set  NAME=%s, Eqamano=%s,Birthday=%s,BloodGroup=%s where ID=%s "
-                           ,(NAME.get(),Eqamano.get(),BirthDay.get(),BloodGroup.get(),ID.get()))
+            cursor.execute("update BID set 
+                           Name =%s,
+                           Postion =%s,
+                           Nationlty =%s,
+                           Customer =%s,
+                           RFQ_No =%s,
+                            Bid_Type =%s,
+                           Execution_Time =%s,
+                           EvaluationDate =%s,
+                           As_per_Standerd =%s,
+                           where Tender_Name =%s"),
+                           (Name.get(),
+                            Postion.get(),
+                            Nationlty.get(),
+                            Customer.get(),
+                            RFQ_No.get(),
+                            Tender_Name.get(),
+                            Bid_Type.get(),
+                            EvaluationDate.get(),
+                            Execution_Time.get(),
+                            As_per_Standerd.get()))
             sqlcon.commit()
 #======================================================search
         def search():
             sqlcon = mysql.connector.connect(host="localhost", user="root", password="12345678", database="naizak")
             cursor = sqlcon.cursor()
-            cursor.execute("select * from nps_new where ID='%s'" %ID.get())
-
+            cursor.execute("select * from BID where Tender_Name='%s'" %Tender_Name.get())
             row = cursor.fetchall()
-
-            ID.set(row[0])
-            NAME.set(row[1])
-            Eqamano.set(row[2])
-            BirthDay.set(row[3])
-            BloodGroup.set(row[4])
+            Name.set(row[0])
+            Postion.set(row[1])
+            Nationlty.set(row[2])
+            Customer.set(row[3])
+            Tender_Name.set(row[4])
+            Bid_Type.set(row[5])
+            EvaluationDate.set(row[6])
+            Execution_Time.set(row[7])
+            As_per_Standerd.set(row[8])
 
             sqlcon.commit()
             sqlcon.close()
 #=====================================================Combobox
 NAME = []
-Postion= []
-Nationlty= []
 Customer= []
 RFQ_No= []
 Tender_Name = []
