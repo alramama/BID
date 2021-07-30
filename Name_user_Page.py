@@ -9,6 +9,23 @@ Name.geometry("800x1000+0+0")
 Name.title("NAME INFORMATION")
 #Name_Type = ["Sales","Service","Contracts"]
 #Customer = ["Gov","SEC","ARAMCO","SABIC","SWCC","NWC"]
+#=====================================================المتغيرات=========================================================
+
+ID = StringVar()
+NAME = StringVar()
+JobTitle = StringVar()
+Qualification = StringVar()
+Salary = StringVar()
+Housing_allowance = StringVar()
+Trans_allowance = StringVar()
+Health_Insurance = StringVar()
+Annual_Tickets = StringVar()
+Phone_Charge = StringVar()
+Work_license = StringVar()
+Residence_permit = StringVar()
+SCE = StringVar()
+GOSI = StringVar()
+
 #=====================================================mysql.connector===============================================
 import mysql.connector
 conn = mysql.connector.connect(user = 'root',password= "", host = 'localhost',database = 'tender')
@@ -16,12 +33,112 @@ print(conn)
 conn.close()
 #=====================================================Mysql.Create table===============================================
 import mysql.connector
-conn = mysql.connector.connect(user = 'root',password= "", host = 'localhost',database = 'tender')
+conn = mysql.connector.connect(user = 'root',password= "12345678", host = 'localhost',database = 'tender')
 mycursor = conn.cursor()
-mycursor.execute("CREATE TABLE Name (name VARCHAR(255), address VARCHAR(255))")
+mycursor.execute("CREATE TABLE Name("
+                 "ID VARCHAR(255),"
+                 "NAME VARCHAR(255),"
+                 "JobTitle VARCHAR(255),"
+                 "Salary VARCHAR(255),"
+                 "Housing_allowance VARCHAR(255),"
+                 "Trans_allowance VARCHAR(255),"
+                 "Health_Insurance VARCHAR(255),"
+                 "Phone_Charge VARCHAR(255),"
+                 "Work_license VARCHAR(255),"
+                 "Residence_permit VARCHAR(255),
+                "SCE VARCHAR(255),
+                "GOSI VARCHAR(255))")
 conn.close()
+#====================================================================INSERT
+def insert():
+    sqlcon = mysql.connector.connect(host="localhost", user="root", password="12345678", database="naizak")
+    cursor = sqlcon.cursor()
+    cursor.execute("INSERT INTO BID VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)",
+                   (ID.get(),
+                    NAME.get(),
+                    Nationlty.get(),
+                    JobTitle.get(),
+                    Salary.get(),
+                    Housing_allowance.get(),
+                    Trans_allowance.get(),
+                    Health_Insurance.get(),
+                    Phone_Charge.get(),
+                    Work_license.get(),
+                   Residence_permit.get(),
+                   SCE.get(),
+                   GOSI.get()))
+    sqlcon.commit()
+    sqlcon.close()
+
+
+conn.close()
+#=====================================================Update
+    def Update():
+            sqlcon = mysql.connector.connect(host="localhost", user="root", password="12345678", database="naizak")
+            cursor = sqlcon.cursor()
+            cursor.execute("update BID set
+                           ID=%s,
+                           NAME=%s,
+                           Nationlty=%s,
+                           JobTitle=%s,
+                           Salary=%s,
+                           Housing_allowance=%s,
+                           Trans_allowance=%s,
+                           Health_Insurance=%s,
+                           Phone_Charge=%s,
+                           Work_license=%s,
+                           Residence_permit=%s,
+                           SCE=%s,
+                           GOSI=%s"),
+                           (ID.get(),
+                            NAME.get(),
+                            Nationlty.get(),
+                            JobTitle.get(),
+                            Salary.get(),
+                            Housing_allowance.get(),
+                            Trans_allowance.get(),
+                            Health_Insurance.get(),
+                            Phone_Charge.get(),
+                            Work_license.get(),
+                           Residence_permit.get(),
+                           SCE.get(),
+                           GOSI.get()))
+            sqlcon.commit()
+#======================================================search
+        def search():
+            sqlcon = mysql.connector.connect(host="localhost", user="root", password="12345678", database="naizak")
+            cursor = sqlcon.cursor()
+            cursor.execute("select * from Name where NAME='%s'" %NAME.get())
+            row = cursor.fetchall()
+            ID.set               (row[0])
+            NAME.set             (row[1])
+            Nationlty.set        (row[2])
+            JobTitle.set         (row[3])
+            Salary.set           (row[4])
+            Housing_allowance.set(row[5])
+            Trans_allowance.set  (row[6])
+            Health_Insurance.set (row[7])
+            Phone_Charge.set     (row[8])
+            Work_license.set     (row[9])
+            Residence_permit.set (row[10])
+            SCE.set              (row[11])
+            GOSI.set             (row[12])
+            sqlcon.commit()
+            sqlcon.close()
 #=====================================================Combobox
-NAME = []
+NAME = mysql.connector.connect(host="localhost", user="root", password="12345678", database="naizak")
+            cursor = sqlcon.cursor()
+            cursor.execute("select * from Name where NAME='%s'" %NAME.get())
+            row = cursor.fetchall()
+            NAME.set             (row[1])
+            sqlcon.commit()
+            sqlcon.close()
+
+#=====================================================mysql.connector===============================================
+import mysql.connector
+conn = mysql.connector.connect(user = 'root',password= "", host = 'localhost',database = 'tender')
+print(conn)
+conn.close()
 #===================================================================NAMETopFram=================================================
 """NAME_Page_title = Frame(Name, bd=16, width=1350, height=60, relief=RAISED)
 NAME_Page_title.grid(row=0, column=0)
