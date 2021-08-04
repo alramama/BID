@@ -15,6 +15,7 @@ ID = StringVar()
 NAME = StringVar()
 JobTitle = StringVar()
 Nationality = StringVar()
+Status_of_Social = StringVar()
 Qualification = StringVar()
 Salary = StringVar()
 Housing_allowance = StringVar()
@@ -26,6 +27,21 @@ Work_license = StringVar()
 Residence_permit = StringVar()
 SCE = StringVar()
 GOSI = StringVar()
+#====================================================
+if Nationality not saudi:
+  Annual_Tickets.insert(2000)
+  Work_license
+  Residence_permit
+  GOSI
+else:
+  Annual_Tickets.insert(2000)
+  Work_license
+  Residence_permit
+  GOSI
+  
+
+  
+    
 
 #=====================================================mysql.connector===============================================
 import mysql.connector
