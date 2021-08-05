@@ -6,13 +6,16 @@
 
   #هل انت متزوج؟ لا
   
-Are_you_Saudi = ttk.Combobox(root)
-Are_you_Saudi['values'] = "Yes","NO"
-Are_you_Saudi.grid(row=0, column=1)
 
-def check():
-  if Are_you_Saudi.get() == "Yes":
-    lbl_GOSI=Label(root,text="GOSI",fg="black", bd=5).grid(row=1,column=8)
+def Nationalty(e):
+    if Are_you_Saudi.get() == "Yes":
+        NAME_MainFrame =             Frame(Name, bd=16, width=1350, height=600, relief=RIDGE)
+        NAME_MainFrame.grid(row=0, column=0)
+        #===================================================================FRAM_Name_Emp_Info.=================================================
+        FRAM_Name_Emp_Info =         Frame(NAME_MainFrame, bd=16, width=70, height=60, relief=RIDGE)
+        FRAM_Name_Emp_Info.grid(row=1, column=0)
+        FRAM_Name_Emp_Info1 =         Frame(NAME_MainFrame, bd=16, width=70, height=60, relief=RIDGE)
+        FRAM_Name_Emp_Info1.grid(row=1, column=0)
   
   else:
 
@@ -110,3 +113,11 @@ else:
   lbl_SCE=                    Entry(FRAM_Name_Emp_Info1, font=('arial', 10, 'bold'), text="SCE",                fg="black", bd=5).grid(row=3,column=7)
   lbl_GOSI=                   Label(FRAM_Name_Emp_Info1, font=('arial', 10, 'bold'), text="GOSI",               fg="black", bd=5).grid(row=1,column=8)
   lbl_GOSI=                   Entry(FRAM_Name_Emp_Info1, font=('arial', 10, 'bold'), text="GOSI",               fg="black", bd=5).grid(row=1,column=9)
+  
+  
+Are_you_Saudi = ttk.Combobox(Name)
+Are_you_Saudi['values'] = "Yes", "NO"
+Are_you_Saudi.current()
+Are_you_Saudi.bind('<<ComboboxSelected>>', Nationalty)
+Are_you_Saudi.grid(row=0, column=1)
+
