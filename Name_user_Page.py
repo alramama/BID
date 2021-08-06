@@ -9,16 +9,15 @@ import tempfile, os
 Name = Tk()
 Name.geometry("1300x1000+0+0")
 Name.title("NAME INFORMATION")
-#Name_Type = ["Sales","Service","Contracts"]
-#Customer = ["Gov","SEC","ARAMCO","SABIC","SWCC","NWC"]
+
 ID = StringVar()
 NAME = StringVar()
 JobTitle = StringVar()
 Nationality = StringVar()
 Status_of_Social = StringVar()
 Qualification = StringVar()
-Salary = StringVar
-Housing_allowance = StringVar
+Salary = StringVar()
+Housing_allowance = StringVar()
 Trans_allowance = StringVar()
 Health_Insurance = StringVar()
 Annual_Tickets = StringVar()
@@ -27,10 +26,31 @@ Work_license = StringVar()
 Residence_permit = StringVar()
 SCE = StringVar()
 GOSI = StringVar()
+End_services = StringVar()
+Total_cost = StringVar()
+
+Salary.set("0")
+Housing_allowance.set("0")
+Trans_allowance.set("0")
+Health_Insurance.set("0")
+Annual_Tickets.set("0")
+Phone_Charge.set("0")
+Work_license.set("0")
+Residence_permit.set("0")
+SCE.set("0")
+GOSI.set("0")
 
 
 
-#================================================SET VALUE==============================================
+def call():
+    A = float(Salary.get())
+    B = float(Housing_allowance.get())
+    C = float(Trans_allowance.get())
+    D = float(Work_license.get())
+    E = float(Residence_permit.get())
+    F = float(SCE.get())
+    Total_cost1 = float(A+B+C+E+D+E+F)
+    Total_cost.set(Total_cost1)
 
 #===================================================================NAMETopFram=================================================
 NAME_Page_title = Frame(Name, bd=16, width=1000, height=60, relief=RIDGE)
@@ -52,8 +72,9 @@ lbl_Name =                   Label(FRAM_Name_Emp_Info1, font=('arial', 20, 'bold
 lbl_Job_Title =              Label(FRAM_Name_Emp_Info1, font=('arial', 20, 'bold'),text="Job Title",         fg="black", bd=5).grid(row=3, column=0)
 lbl_Qualification =          Label(FRAM_Name_Emp_Info1, font=('arial', 20, 'bold'),text="Qualification",     fg="black", bd=5).grid(row=4, column=0)
 lbl_Salary =                 Label(FRAM_Name_Emp_Info1, font=('arial', 20, 'bold'), text="Salary",           fg="black", bd=5).grid(row=5, column=0)
-Are_you_Saudi =              Label(FRAM_Name_Emp_Info1, font=('arial', 20, 'bold'), text="Are_you_Saudi",    fg="black", bd=5).grid(row=6, column=0)
-Are_you_marrid =             Label(FRAM_Name_Emp_Info1, font=('arial', 20, 'bold'), text="Are_you_marrid",   fg="black", bd=5).grid(row=7, column=0)
+lbl_Total_cost =             Label(FRAM_Name_Emp_Info1, font=('arial', 20, 'bold'), text="Total Cost",   fg="black", bd=5).grid(row=6, column=0)
+Are_you_Saudi =              Label(FRAM_Name_Emp_Info1, font=('arial', 20, 'bold'), text="Are_you_Saudi",    fg="black", bd=5).grid(row=7, column=0)
+Are_you_marrid =             Label(FRAM_Name_Emp_Info1, font=('arial', 20, 'bold'), text="Are_you_marrid",   fg="black", bd=5).grid(row=8, column=0)
 
 
 lbl_ID =                     Entry(FRAM_Name_Emp_Info1, font=('arial', 20, 'bold'),textvariable=ID,                fg="black", bd=5).grid(row=1, column=1)
@@ -62,6 +83,9 @@ lbl_Job_Title =              Entry(FRAM_Name_Emp_Info1, font=('arial', 20, 'bold
 lbl_Qualification =          Entry(FRAM_Name_Emp_Info1, font=('arial', 20, 'bold'),textvariable=Qualification,     fg="black", bd=5).grid(row=4, column=1)
 ENT_Salary =                 Entry(FRAM_Name_Emp_Info1, font=('arial', 20, 'bold'), textvariable=Salary,           fg="black", bd=5)
 ENT_Salary.grid(row=5, column=1)
+ENT_Total_cost =             Entry(FRAM_Name_Emp_Info1, font=('arial', 20, 'bold'), textvariable=Total_cost,           fg="black", bd=5)
+ENT_Total_cost.grid(row=6, column=1)
+
 
 
 
@@ -113,7 +137,7 @@ Are_you_Saudi = ttk.Combobox(FRAM_Name_Emp_Info1)
 Are_you_Saudi['values'] = "Yes", "NO"
 Are_you_Saudi.current()
 Are_you_Saudi.bind('<<ComboboxSelected>>',Nationalty)
-Are_you_Saudi.grid(row=6, column=1)
+Are_you_Saudi.grid(row=7, column=1)
 
 def marrid(e):
     if Are_you_Saudi.get() == "Yes":
@@ -131,7 +155,7 @@ Are_you_marrid = ttk.Combobox(FRAM_Name_Emp_Info1)
 Are_you_marrid['values'] = "Yes"
 Are_you_marrid.current()
 Are_you_marrid.bind('<<ComboboxSelected>>',marrid)
-Are_you_marrid.grid(row=7, column=1)
+Are_you_marrid.grid(row=8, column=1)
 
 #Housing_allowance.set("00")
 Trans_allowance.set("00")
@@ -143,11 +167,20 @@ Residence_permit.set("00")
 SCE.set("00")
 GOSI.set("00")
 
+BTN_MainFrame =             Frame(Name, bd=16, width=600, height=50, relief=RIDGE)
+BTN_MainFrame.grid(row=2, column=0)
+BtnTotalCost = Button(BTN_MainFrame, bd = 8 , pady = 8 , fg = "black", font = ('arial',16, 'bold'), width =11, text = "Total Cost", bg = "white",command = call).grid(row = 0 , column = 0)
 
 
 
 Name.mainloop()
 
+
+
+
+
+
+Name.mainloop()
 
   
     
