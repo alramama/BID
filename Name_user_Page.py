@@ -80,7 +80,7 @@ Are_you_marrid =             Label(FRAM_Name_Emp_Info1, font=('arial', 20, 'bold
 lbl_ID =                     Entry(FRAM_Name_Emp_Info1, font=('arial', 20, 'bold'),textvariable=ID,                fg="black", bd=5).grid(row=1, column=1)
 lbl_Name =                   Entry(FRAM_Name_Emp_Info1, font=('arial', 20, 'bold'),textvariable=NAME,              fg="black", bd=5).grid(row=2, column=1)
 lbl_Job_Title =              Entry(FRAM_Name_Emp_Info1, font=('arial', 20, 'bold'),textvariable=JobTitle,         fg="black", bd=5).grid(row=3, column=1)
-lbl_Qualification =          Entry(FRAM_Name_Emp_Info1, font=('arial', 20, 'bold'),textvariable=Qualification,     fg="black", bd=5).grid(row=4, column=1)
+#lbl_Qualification =          Entry(FRAM_Name_Emp_Info1, font=('arial', 20, 'bold'),textvariable=Qualification,     fg="black", bd=5).grid(row=4, column=1)
 ENT_Salary =                 Entry(FRAM_Name_Emp_Info1, font=('arial', 20, 'bold'), textvariable=Salary,           fg="black", bd=5)
 ENT_Salary.grid(row=5, column=1)
 ENT_Total_cost =             Entry(FRAM_Name_Emp_Info1, font=('arial', 20, 'bold'), textvariable=Total_cost,           fg="black", bd=5)
@@ -106,6 +106,23 @@ def Nationalty(e):
         lbl_Phone_Charge=           Entry(FRAM_Name_Emp_Info1, font=('arial', 20, 'bold'), textvariable=Phone_Charge,         fg="black", bd=5).grid(row=4,column=3)
         lbl_SCE=                    Entry(FRAM_Name_Emp_Info1, font=('arial', 20, 'bold'), textvariable=SCE,                  fg="black", bd=5).grid(row=5,column=3)
         lbl_GOSI=                   Entry(FRAM_Name_Emp_Info1, font=('arial', 20, 'bold'), textvariable=GOSI,                 fg="black", bd=5).grid(row=6,column=3)
+        GOSI1 = float(Salary.get())
+        GOSI2 = float(0.12)
+        GOSI3 = str(GOSI1 * GOSI2)
+        GOSI.set(GOSI3)
+        Work_license.set("950")
+        Residence_permit.set("65")
+        Housing_allowance1 = float(Salary.get())
+        Housing_allowance2 = float(0.25)
+        Housing_allowance3 = str(Housing_allowance1 * Housing_allowance2)
+        Housing_allowance.set(Housing_allowance3)
+
+        Trans_allowance1 = float(Salary.get())
+        Trans_allowance2 = float(0.10)
+        Trans_allowance3 = str(Trans_allowance1 * Trans_allowance2)
+        Trans_allowance.set(Trans_allowance3)
+
+        
 
 
     else:
@@ -130,6 +147,22 @@ def Nationalty(e):
         lbl_Annual_Tickets =        Entry(FRAM_Name_Emp_Info1, font=('arial', 20, 'bold'), textvariable=Annual_Tickets,     fg="black", bd=5).grid(row=7,column=3)
         lbl_Work_license=           Entry(FRAM_Name_Emp_Info1, font=('arial', 20, 'bold'), textvariable=Work_license,       fg="black", bd=5).grid(row=8,column=3)
         lbl_Residence_permit=       Entry(FRAM_Name_Emp_Info1, font=('arial', 20, 'bold'), textvariable=Residence_permit,   fg="black", bd=5).grid(row=9,column=3)
+        GOSI1 = float(Salary.get())
+        GOSI2 = float(0.02)
+        GOSI3 = str(GOSI1 * GOSI2)
+        GOSI.set(GOSI3)
+        Work_license.set("950")
+        Residence_permit.set("65")
+        Housing_allowance1 = float(Salary.get())
+        Housing_allowance2 = float(0.25)
+        Housing_allowance3 = str(Housing_allowance1 * Housing_allowance2)
+        Housing_allowance.set(Housing_allowance3)
+
+        Trans_allowance1 = float(Salary.get())
+        Trans_allowance2 = float(0.10)
+        Trans_allowance3 = str(Trans_allowance1 * Trans_allowance2)
+        Trans_allowance.set(Trans_allowance3)
+
 
 
 
@@ -156,6 +189,23 @@ Are_you_marrid['values'] = "Yes"
 Are_you_marrid.current()
 Are_you_marrid.bind('<<ComboboxSelected>>',marrid)
 Are_you_marrid.grid(row=8, column=1)
+
+def Qualification1(e):
+    if Qualification.get() == "Eng":
+        SCE.set("1300")
+    if Qualification.get() == "Tech":
+        SCE.set("700")
+    if Qualification.get() == "Admin":
+        SCE.set("00")
+
+
+Qualification = ttk.Combobox(FRAM_Name_Emp_Info1)
+Qualification['values'] = "Eng", "Tech", "Admin"
+Qualification.current()
+Qualification.bind('<<ComboboxSelected>>', Qualification1)
+Qualification.grid(row=4, column=1)
+
+
 
 #Housing_allowance.set("00")
 Trans_allowance.set("00")
