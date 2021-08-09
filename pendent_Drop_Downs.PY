@@ -2,7 +2,7 @@ from tkinter import *
 from tkinter import ttk
 
 bid = Tk()
-bid.geometry("400x400")
+bid.geometry("400x700")
 
 Braeker_type = ["ACB","MCB","MCCB",""]
 
@@ -49,11 +49,20 @@ def lisbox1(e):
 
 for item in Braeker_type:
     listbox1.insert(END,item)
-
-
-
 listbox1.bind("<<ListboxSelect>>", lisbox1)
 
+def delete():
+    listbox2.select_anchor
+def select():
+    ent.config(text = listbox2.get(ANCHOR))
+
+BTN = Button(bid, text = "DELETE" , command = delete)
+BTN.pack()
+BTN = Button(bid, text = "select" , command = select)
+BTN.pack()
+global ent
+ent = Label(bid)
+ent.pack()
 
 
 bid.mainloop()
