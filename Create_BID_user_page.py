@@ -36,11 +36,33 @@ typeOfworks = ["Construct" , "Supply" ,"installation","Testing","commissioning",
 Equipment = ["Generators","Transformers","Distribution_Panel","Medium voltage","Breakers","Cable","SCADA_System"]
 
 Generators = ["Backup generators","prime generators","Mobil Generator"]
-Generators_Specification = []
+    KVA = Label(bid, text = "KVA").pack()
+    V   = Label(bid, text = "V").pack()
+    Phase =Label(bid, text = "Phase").pack()
+    Hz = Label(bid, text = "Hz").pack()
+    Sound_proof_mounted =Label(bid, text = "Sound_proof_mounted").pack()
+    Indoor_outdoor =Label(bid, text = "Indoor_outdoor").pack()
+    Water_cooled =Label(bid, text = "Water_cooled").pack()
+    Floor_type =Label(bid, text = "Floor_type").pack()
+
 Transformers = ["Power transformer","Startup transformer","Medium voltage transformer"]
+    Rating = 
+    Phase = 
+    Hz = 
+    Volts = 
+    (No lode) = 
+    Amps HV = 
+    Amps LV = 
+    Vector Group = 
+    Impedance = 
+    Max.Ambient Temp.(outdoor) = 
+    Cooling type = 
+    Floor type = 
+Breakers = ["ACB","MCB","MCCB"]
+
+
 Distribution_Panel = ["Main distribution panels","Sub-distribution panels"]
 Medium_Voltage = ["Switch gear","Ring Main units"]
-Breakers = ["ACB","MCB","MCCB"]
 Cable = ["Medium voltage cables","Low voltage cables"]
 SCADA_System = ["UPS","RTU","New Readings","Battery charge","Battery bank"]
 Montring_System = ["PDM","DGA","WAMS"]
