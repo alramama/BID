@@ -62,10 +62,15 @@ Breakers = ["ACB","MCB","MCCB"]
 
 
 Distribution_Panel = ["Main distribution panels","Sub-distribution panels"]
+
 Medium_Voltage = ["Switch gear","Ring Main units"]
+
 Cable = ["Medium voltage cables","Low voltage cables"]
+
 SCADA_System = ["UPS","RTU","New Readings","Battery charge","Battery bank"]
+
 Montring_System = ["PDM","DGA","WAMS"]
+
 
 lbl_work_Order =    Label(FRAM_BID_Emp_Info, font=('arial', 20, 'bold'), text="Work_Order",   fg="black", bd=5).grid(row=1, column=0, sticky=W)
 lbl_rfq_no =        Label(FRAM_BID_Emp_Info, font=('arial', 20, 'bold'), text="RFQ_No",       fg="black", bd=5).grid(row=2, column=0, sticky=W)
