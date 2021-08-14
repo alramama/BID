@@ -4,8 +4,12 @@ import time
 import datetime
 import tempfile, os
 import self as self
+from tkinter import filedialog
+import PyPDF2
+
+
 BID = Tk()
-BID.geometry("800x800+0+0")
+BID.geometry("1500x1000+0+0")
 BID.title("BID INFORMATION")
 
 Work_Order = StringVar()
@@ -32,32 +36,9 @@ FRAM_BID_Emp_Info = Frame(BID_MainFrame, bd=16, width=100, height=80, relief=RID
 FRAM_BID_Emp_Info.grid(row=1, column=0)
 
 typeOfworks = ["Construct" , "Supply" ,"installation","Testing","commissioning","Add","Preventive maintenance","Corrective maintenance","Maintenance","replace","check","Upgrade"]
-
 Equipment = ["Generators","Transformers","Distribution_Panel","Medium voltage","Breakers","Cable","SCADA_System"]
-
 Generators = ["Backup generators","prime generators","Mobil Generator"]
-    KVA = Label(bid, text = "KVA").pack()
-    V   = Label(bid, text = "V").pack()
-    Phase =Label(bid, text = "Phase").pack()
-    Hz = Label(bid, text = "Hz").pack()
-    Sound_proof_mounted =Label(bid, text = "Sound_proof_mounted").pack()
-    Indoor_outdoor =Label(bid, text = "Indoor_outdoor").pack()
-    Water_cooled =Label(bid, text = "Water_cooled").pack()
-    Floor_type =Label(bid, text = "Floor_type").pack()
-
 Transformers = ["Power transformer","Startup transformer","Medium voltage transformer"]
-    Rating = 
-    Phase = 
-    Hz = 
-    Volts = 
-    (No lode) = 
-    Amps HV = 
-    Amps LV = 
-    Vector Group = 
-    Impedance = 
-    Max.Ambient Temp.(outdoor) = 
-    Cooling type = 
-    Floor type = 
 Breakers = ["ACB","MCB","MCCB"]
 
 
@@ -74,8 +55,8 @@ Montring_System = ["PDM","DGA","WAMS"]
 
 lbl_work_Order =    Label(FRAM_BID_Emp_Info, font=('arial', 20, 'bold'), text="Work_Order",   fg="black", bd=5).grid(row=1, column=0, sticky=W)
 lbl_rfq_no =        Label(FRAM_BID_Emp_Info, font=('arial', 20, 'bold'), text="RFQ_No",       fg="black", bd=5).grid(row=2, column=0, sticky=W)
-lbl_work_Order =    Entry(FRAM_BID_Emp_Info, font=('arial', 20, 'bold'), textvariable=Work_Order,   fg="black", bd=5).grid(row=1, column=1, sticky=W)
-lbl_rfq_no =        Entry(FRAM_BID_Emp_Info, font=('arial', 20, 'bold'), textvariable=RFQ_No,       fg="black", bd=5).grid(row=2, column=1, sticky=W)
+lbl_work_Order =    Entry(FRAM_BID_Emp_Info, font=('arial', 22, 'bold'), textvariable=Work_Order,   fg="black", bd=5).grid(row=1, column=1, sticky=W)
+lbl_rfq_no =        Entry(FRAM_BID_Emp_Info, font=('arial', 22, 'bold'), textvariable=RFQ_No,       fg="black", bd=5).grid(row=2, column=1, sticky=W)
 
 FRAM_BID_Emp_Info1 = Frame(BID_MainFrame, bd=16, width=100, height=80, relief=RIDGE)
 FRAM_BID_Emp_Info1.grid(row=2, column=0)
@@ -108,15 +89,36 @@ FRAM_BID_Emp_Info3.grid(row=1, column=1)
 
 lbl_standerd =            Label(FRAM_BID_Emp_Info3, font=('arial', 20, 'bold'), text="Standerd",         fg="black", bd=5).grid(row=11, column=0, sticky=W)
 lbl_tender_documents =    Label(FRAM_BID_Emp_Info3, font=('arial', 20, 'bold'), text="Tender_doc.", fg="black", bd=5).grid(row=12, column=0, sticky=W)
-lbl_standerd =            Entry(FRAM_BID_Emp_Info3, font=('arial', 20, 'bold'), textvariable=Standerd,         fg="black", bd=5).grid(row=11, column=1, sticky=W)
-lbl_tender_documents =    Entry(FRAM_BID_Emp_Info3, font=('arial', 20, 'bold'), textvariable=Tender_documents, fg="black", bd=5).grid(row=12, column=1, sticky=W)
+lbl_standerd =            Entry(FRAM_BID_Emp_Info3, font=('arial', 23, 'bold'), textvariable=Standerd,         fg="black", bd=5).grid(row=11, column=1, sticky=W)
+lbl_tender_documents =    Entry(FRAM_BID_Emp_Info3, font=('arial', 23, 'bold'), textvariable=Tender_documents, fg="black", bd=5).grid(row=12, column=1, sticky=W)
 
-FRAM_BID_Emp_Info4 = Frame(BID_MainFrame, bd=16, width=100, height=80, relief=RIDGE)
-FRAM_BID_Emp_Info4.grid(row=3, column=0)
+#FRAM_BID_Emp_Info4 = Frame(BID_MainFrame, bd=16, width=100, height=80, relief=RIDGE)
+#FRAM_BID_Emp_Info4.grid(row=3, column=0)
 
-lbl_SOW = Label(FRAM_BID_Emp_Info4, font=('arial', 20, 'bold'), text="SOW",       fg="black", bd=5).grid(row=7, column=0, sticky=W)
-ent_SOW = Listbox(FRAM_BID_Emp_Info4, font=('arial', 20, 'bold'),       fg="black", bd=5).grid(row=7, column=1, sticky=W)
+#lbl_SOW = Label(FRAM_BID_Emp_Info4, font=('arial', 20, 'bold'), text="SOW",       fg="black", bd=5).grid(row=7, column=0, sticky=W)
+#ent_SOW = Listbox(FRAM_BID_Emp_Info4, font=('arial', 20, 'bold'),       fg="black", bd=5).grid(row=7, column=1, sticky=W)
+
+BID_MainFrame1 = Frame(BID, bd=16, width=1350, height=600, relief=RIDGE)
+BID_MainFrame1.grid(row=1, column=0)
+
+lbl_SOW = Label(BID_MainFrame1, font=('arial', 20, 'bold'), text="Full tender",       fg="black", bd=5).grid(row=7, column=0, sticky=W)
+ent_SOW = Text(BID_MainFrame1, font=('arial', 20, 'bold'), width= 63,height=15, fg="black", bd=5)
+ent_SOW.grid(row=7, column=1, sticky=W)
+
+def insert_sow():
+
+    open_file = filedialog.askopenfilename()
+    if open_file:
+        pdf_file = PyPDF2.PdfFileReader(open_file)
+        page = pdf_file.getPage(0)
+        page_stuff = page.extractText()
+        ent_SOW.insert(1.0,page_stuff)
+
+BID_MainFrame2 = Frame(BID, bd=16, width=1350, height=600, relief=RIDGE)
+BID_MainFrame2.grid(row=2, column=0)
+
+btn = Button(BID_MainFrame2,bd = 8 , pady = 8 , fg = "black", font = ('arial',16, 'bold'), width =11, text = "insert_sow", bg = "white",command = insert_sow)
+btn.grid(row = 0 , column = 0)
 
 
 BID.mainloop()
-
