@@ -10,6 +10,12 @@ Vendor.title("VENDOR INFORMATION")
 #Vendor_Type = ["Sales","Service","Contracts"]
 #Customer = ["Gov","SEC","ARAMCO","SABIC","SWCC","NWC"]
 
+TypeOfWork = 
+COMPANY_NAME = 
+CONTACT_INFO = 
+
+
+
 #===================================================================VENDORTopFram=================================================
 #VENDOR_Page_title = Frame(VENDOR, bd=16, width=1350, height=60, relief=RAISED)
 #VENDOR_Page_title.pack(side=TOP)
