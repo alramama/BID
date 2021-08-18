@@ -6,6 +6,15 @@ import tempfile, os
 import self as self
 from tkinter import filedialog
 import PyPDF2
+def Convert(lst):
+    res_dct = {lst[i]: lst[i + 1] for i in range(0, len(lst), 2)}
+    return res_dct
+         
+# Driver code
+#lst = ['AMPERAGE:', '2500 A;', 'CONNECTION:', 'DRAWABLE;', 'INTERRUPTING CAPACITY:', '31.5 KA;', 'KV RATING:', '33 KV;', 'PHASE:', '3 PHASE;', 'STANDARD/SPECIFICATION:', 'IEC 56;']
+lst =['AMPERAGE:2500 A', 'CONNECTION:', 'DRAWABLE', 'INTERRUPTING CAPACITY:', '31.5 KA', 'KV RATING:', '33 KV', 'PHASE:', '3 PHASE', 'STANDARD/SPECIFICATION:', 'IEC 56']
+Z = (Convert(lst))
+print(Z)
 
 # Tranformer
 
