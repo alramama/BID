@@ -1,4 +1,4 @@
-data = """MOUNT:
+data ="""MOUNT:
 PAD;
 KVA RATING:
 1500 KVA;
@@ -21,30 +21,24 @@ YYYN0;
 PRIMARY BUSHINGS:
 (3) LOAD BREAK BUSHING INSERT;
 SECONDARY BUSHINGS:
-(3) LOAD BREAK BUSHING INSERT FOR 4160
-V, (4) ENCLOSED 4-HOLES SPADE TERMINATI ONS FOR 480 V;
-PRIMARY CONNECTIONS:
-LOADBREAK ELBOW TERMINATION;
-SECONDARY CONNECTIONS:
-LOAD BREAK BUSHING INSERT (FOR 4160 V),
-ENCLOSED SPADE TERMINALS;
-STANDARD/SPECIFICATION:
-51-SMSS-6;
-ADDITIONAL DATA:
-RADIAL FEED, SAMPLE SER NO TBT 7525-0102
-WESTINGHOUSE (FM):
-P/N#RSL/34500 V
-APPLICATOIN:
-INSTALLED AT 31CC IN JUBAIL INDUSTRIAL CITY IN MDNOD NORTH AREA.
+(3) LOAD BREAK BUSHING INSERT FOR 4160 V, (4) ENCLOSED 4-HOLES SPADE TERMINATI ONS FOR 480 V;"""
+clean1 = data.replace(";","")
+clean2 = clean1.replace(":"," ")
+clean3 = clean2.replace(","," ")
+clean4 = clean3.strip()
+#print(clean4)
+#clean5 = clean4.pop(1)
 
-"""
+
+#print(clean3)
+
 #A = data.splitlines()
-A = data.split("\n")
-print(A)
+A = clean4.split("\n")
+#print(A)
 B = str(A).replace("n"," ")
-print(B)
+#print(B)
 C = str(A).replace("\\"," ")
-print(C)
+#print(C)
 
 #A = data.splitlines()
 print(len(A))
@@ -59,8 +53,23 @@ def Convert(lst):
 lst = A 
 Z = (Convert(lst))
 print(Z)
-print(Z.keys())
-AA = Z.values()
-ZZ = str(AA)
-ZZZ = ZZ.replace(";"," ")
-print(ZZZ)
+#print(Z["MOUNT"])
+#print(Z["KVARATING"])
+#print(Z["PHASE"])
+#print(Z["APPLICATION"])
+
+
+
+
+
+
+#print(Z["MOUNT "])
+#clean1 = str(Z).replace(";","")
+#clean2 = clean1.replace(":"," ")
+#clean3 = clean2.replace(","," ")
+#print(clean3)
+
+
+
+
+
