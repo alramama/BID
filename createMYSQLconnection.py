@@ -254,6 +254,125 @@ btn.pack()
 
 
 
+from tkinter import*
+root = Tk()
+
+import requests
+import pdfplumber
+import re
+
+with pdfplumber.open("g.pdf") as pdf:
+  page = pdf.pages[0]
+  text1 = page.extract_tables()
+  text2 = page.extract_table()
+  text3 = page.extract_text()
+  #print(text3.index("INTERNAL MATERIAL/S:"))
+  #print(text3.index("ADDITIONAL DATA:"))
+
+  #print(text3[531:822])
+  a = (text3[531:822])
+  b= re.split("\n",a)
+  i=0
+  while i<(len(b)):
+    x = (b[i])
+    i +=2
+
+
+
+
+z = '''INTERNAL MATERIALS:
+VOLTAGE:
+CELLS:
+CONNECTION:
+SIZE:
+STANDARD/SPECIFICATION:'''
+z10 = a.replace(" ","_") 
+z11 = z10.replace("/","_") 
+z12 = (z.count(":"))
+z13 = (z12 * "%s,")
+
+x = ["SEC", " Aramco","SWCC"]
+def create_vraiables():
+  data_type = z11.replace(":"," = StringVar()")
+  print(data_type)
+
+
+def create_database():
+  print("import mysql.connector")
+  print('''  db = mysql.connector.connect(
+  user='root',
+  passwd='',
+  host='')''')
+  x1 = "cursor.execute('CREATE DATABASE "
+  x2 = x[1]
+  x3 = "'"
+  x4 = ')'
+  print("cursor = db.cursor()")
+  print(x1+x2+x3+x4 )
+  print("cursor.close()")
+  print("  db.close()")
+def create_table():
+  print("import mysql.connector")
+  print('''  db = mysql.connector.connect(
+  user='root',
+  passwd='',
+  host='',
+  database = "" )''')
+  x1 = "cursor.execute('CREATE TABLE "
+  table_name = x[1]
+  x2_1 = "("
+  data_type = b[i].replace(":"," VARCHAR(255),")
+  x2_3 = ")"
+  x3 = "'"
+  print("cursor = db.cursor()")
+  print(x1 + table_name + " "+ x2_1 + data_type + x2_3 + x3 )
+  print("cursor.close()")
+  print("  db.close()")
+def Insert_into_table():
+  print("import mysql.connector")
+  print('''  db = mysql.connector.connect(
+  user='root',
+  passwd='',
+  host='',
+  database = "" )''')
+  x1 = 'cursor.execute(INSERT INTO'
+  table_name = x[1]
+  x2_1 = "("
+  data_type = z11.replace(":"," VARCHAR(255),")
+  x2_3 = ")"
+  x2_4 = "values "
+  x2_5 = "("
+  x2_6 = z13
+  x2_7 = ")"
+  x3 = "'"
+  print("cursor = db.cursor()")
+  print(x1 + table_name +" "+ x2_1+data_type + x2_3+ x2_4+ x2_5+ x2_6+ x2_7)
+  print("cursor.close()")
+  print("  db.close()")
+
+btn = Button(root, text = "create_vraiables", command  =create_vraiables )
+btn.pack()
+
+btn = Button(root, text = "CREATE DATABASE", command  =create_database )
+btn.pack()
+btn = Button(root, text = "CREATE table", command  =create_table )
+btn.pack()
+btn = Button(root, text = "Insert_into_table", command  =Insert_into_table )
+btn.pack()
+
+
+
+root.mainloop()
+
+
+
+
+
+
+
+
+
+
 root.mainloop()
 
 SECONDARY_BIL_RATINGS.get(),
