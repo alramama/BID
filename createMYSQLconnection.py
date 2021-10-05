@@ -168,6 +168,94 @@ ACTUAL_PRIMARY_VOLT.get(),
 SECONDARY_VOLT.get(),
 FREQUENCY.get(),
 PRIMARY_BIL_RATING.get(),
+
+
+from tkinter import*
+root = Tk()
+z = '''INTERNAL MATERIALS:
+VOLTAGE:
+CELLS:
+CONNECTION:
+SIZE:
+STANDARD/SPECIFICATION:'''
+z10 = z.replace(" ","_") 
+z11 = z10.replace("/","_") 
+z12 = (z.count(":"))
+z13 = (z12 * "%s,")
+
+x = ["SEC", " Aramco","SWCC"]
+def create_vraiables():
+  data_type = z11.replace(":"," = StringVar()")
+  print(data_type)
+
+
+def create_database():
+  print("import mysql.connector")
+  print('''  db = mysql.connector.connect(
+  user='root',
+  passwd='',
+  host='')''')
+  x1 = "cursor.execute('CREATE DATABASE "
+  x2 = x[1]
+  x3 = "'"
+  x4 = ')'
+  print("cursor = db.cursor()")
+  print(x1+x2+x3+x4 )
+  print("cursor.close()")
+  print("  db.close()")
+def create_table():
+  print("import mysql.connector")
+  print('''  db = mysql.connector.connect(
+  user='root',
+  passwd='',
+  host='',
+  database = "" )''')
+  x1 = "cursor.execute('CREATE TABLE "
+  table_name = x[1]
+  x2_1 = "("
+  data_type = z11.replace(":"," VARCHAR(255),")
+  x2_3 = ")"
+  x3 = "'"
+  print("cursor = db.cursor()")
+  print(x1 + table_name + " "+ x2_1 + data_type + x2_3 + x3 )
+  print("cursor.close()")
+  print("  db.close()")
+def Insert_into_table():
+  print("import mysql.connector")
+  print('''  db = mysql.connector.connect(
+  user='root',
+  passwd='',
+  host='',
+  database = "" )''')
+  x1 = 'cursor.execute(INSERT INTO'
+  table_name = x[1]
+  x2_1 = "("
+  data_type = z11.replace(":"," VARCHAR(255),")
+  x2_3 = ")"
+  x2_4 = "values "
+  x2_5 = "("
+  x2_6 = z13
+  x2_7 = ")"
+  x3 = "'"
+  print("cursor = db.cursor()")
+  print(x1 + table_name +" "+ x2_1+data_type + x2_3+ x2_4+ x2_5+ x2_6+ x2_7)
+  print("cursor.close()")
+  print("  db.close()")
+
+btn = Button(root, text = "create_vraiables", command  =create_vraiables )
+btn.pack()
+
+btn = Button(root, text = "CREATE DATABASE", command  =create_database )
+btn.pack()
+btn = Button(root, text = "CREATE table", command  =create_table )
+btn.pack()
+btn = Button(root, text = "Insert_into_table", command  =Insert_into_table )
+btn.pack()
+
+
+
+root.mainloop()
+
 SECONDARY_BIL_RATINGS.get(),
 VECTOR_GROUP.get(),
 PRIMARY_BUSHINGS.get())
