@@ -5,7 +5,13 @@ from tkinter import *
 
 root = Tk()
 INTERNALMATERIALS = StringVar()
-with pdfplumber.open("c.pdf") as pdf:
+VOLTAGE = StringVar()
+SIZE = StringVar()
+CONNECTION = StringVar()
+STANDARD/SPECIFICATION = StringVar()
+ADDITIONAL DATA = StringVar()
+
+  with pdfplumber.open("c.pdf") as pdf:
   page = pdf.pages[0]
   text1 = page.extract_tables()
   text2 = page.extract_table()
