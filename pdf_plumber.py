@@ -4,12 +4,23 @@ import re
 from tkinter import *
 
 root = Tk()
-INTERNALMATERIALS = StringVar()
+
+INTERNAL_MATERIALS = StringVar()
 VOLTAGE = StringVar()
 SIZE = StringVar()
 CONNECTION = StringVar()
 STANDARD_SPECIFICATION = StringVar()
 ADDITIONAL_DATA = StringVar()
+RFQ_no = StringVar()
+Bid_open = StringVar()
+Bid_close = StringVar()
+Bayer_Name = StringVar()
+Bayer_Telphone = StringVar()
+Req_Unit = StringVar()
+Req_Qty = StringVar()
+
+
+
 
   with pdfplumber.open("c.pdf") as pdf:
   page = pdf.pages[0]
@@ -66,16 +77,14 @@ ADDITIONAL_DATA = StringVar()
     lbl__RFQ_NO.grid(row = 1 , column = 1)
     ent_RFQ_NO= Entry(Frame01, font = ('arial',12, 'bold'), textvariable= RFQ_NO, fg = "black", bd = 20,  width = 16, bg = "white", justify = 'left'  )
     ent__RFQ_NO.grid(row = 1 , column = 1)
-    a0 = (new.get("INTERNAL MATERIAL/S:"))
-    ent__RFQ_NO.insert(0,a0)
+    ent__RFQ_NO.insert(0,RFQ_NO)
     print(ent__RFQ_NO.get())
 
     lbl_BID_OPEN= Entry(Frame01, font = ('arial',12, 'bold'), text= "BID_OPEN", fg = "black", bd = 20,  width = 16, bg = "white" , justify = 'left'  )
     lbl__BID_OPEN.grid(row = 1 , column = 1)
     ent_BID_OPEN= Entry(Frame01, font = ('arial',12, 'bold'), textvariable= BID_OPEN, fg = "black", bd = 20,  width = 16, bg = "white", justify = 'left'  )
     ent__BID_OPEN.grid(row = 1 , column = 1)
-    a0 = (new.get("INTERNAL MATERIAL/S:"))
-    ent__BID_OPEN.insert(0,a0)
+    ent__BID_OPEN.insert(0,BID_OPEN)
     print(ent__BID_OPEN.get())
 
 
@@ -83,32 +92,28 @@ ADDITIONAL_DATA = StringVar()
     lbl__BAYER_NAME.grid(row = 1 , column = 1)
     ent_BAYER_NAME= Entry(Frame01, font = ('arial',12, 'bold'), textvariable= BAYER_NAME, fg = "black", bd = 20,  width = 16, bg = "white", justify = 'left'  )
     ent__BAYER_NAME.grid(row = 1 , column = 1)
-    a0 = (new.get("INTERNAL MATERIAL/S:"))
-    ent__BAYER_NAME.insert(0,a0)
+    ent__BAYER_NAME.insert(0,BAYER_NAME)
     print(ent__BAYER_NAME.get())
 
     lbl_BAYER_TELPHONE= Entry(Frame01, font = ('arial',12, 'bold'), text= "BAYER_TELPHONE", fg = "black", bd = 20,  width = 16, bg = "white" , justify = 'left'  )
     lbl__BAYER_TELPHONE.grid(row = 1 , column = 1)
     ent_BAYER_TELPHONE= Entry(Frame01, font = ('arial',12, 'bold'), textvariable= BAYER_TELPHONE, fg = "black", bd = 20,  width = 16, bg = "white", justify = 'left'  )
     ent__BAYER_TELPHONE.grid(row = 1 , column = 1)
-    a0 = (new.get("INTERNAL MATERIAL/S:"))
-    ent__BAYER_TELPHONE.insert(0,a0)
+    ent__BAYER_TELPHONE.insert(0,BAYER_TELPHONE)
     print(ent__BAYER_TELPHONE.get())
 
     lbl_REQ_UNIT= Entry(Frame01, font = ('arial',12, 'bold'), text= "REQ_UNIT", fg = "black", bd = 20,  width = 16, bg = "white" , justify = 'left'  )
     lbl__REQ_UNIT.grid(row = 1 , column = 1)
     ent_REQ_UNIT= Entry(Frame01, font = ('arial',12, 'bold'), textvariable= REQ_UNIT, fg = "black", bd = 20,  width = 16, bg = "white", justify = 'left'  )
     ent__REQ_UNIT.grid(row = 1 , column = 1)
-    a0 = (new.get("INTERNAL MATERIAL/S:"))
-    ent__REQ_UNIT.insert(0,a0)
+    ent__REQ_UNIT.insert(0,REQ_UNIT)
     print(ent__REQ_UNIT.get())
 
     lbl_REQ_QTY= Entry(Frame01, font = ('arial',12, 'bold'), text= "REQ_QTY", fg = "black", bd = 20,  width = 16, bg = "white" , justify = 'left'  )
     lbl__REQ_QTY.grid(row = 1 , column = 1)
     ent_REQ_QTY= Entry(Frame01, font = ('arial',12, 'bold'), textvariable= REQ_QTY, fg = "black", bd = 20,  width = 16, bg = "white", justify = 'left'  )
     ent__REQ_QTY.grid(row = 1 , column = 1)
-    a0 = (new.get("INTERNAL MATERIAL/S:"))
-    ent__REQ_QTY.insert(0,a0)
+    ent__REQ_QTY.insert(0,REQ_QTY)
     print(ent__REQ_QTY.get())
 
     #---------------------------------------------INTERNAL_MATERIALS
