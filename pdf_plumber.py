@@ -21,6 +21,11 @@ Bayer_Name = StringVar()
 Bayer_Telphone = StringVar()
 Req_Unit = StringVar()
 Req_Qty = StringVar()
+AMP_HOURS = StringVar()
+GROUP_SIZE = StringVar()
+CELLS = StringVar()
+
+
 
 db = mysql.connector.connect(user='root',passwd='12345678',host='localhost',database='naizak')
 cursor = db.cursor()
@@ -85,14 +90,102 @@ with pdfplumber.open("2.pdf") as pdf:
       # Driver code
       list1 = a3
       new = Convert_dict(list1)
+      for i in new:
+        if i == "INTERNAL MATERIAL/S:":
+          lbl_INTERNAL_MATERIALS = Label(Fram01, font=('arial', 12, 'bold'), text="INTERNAL_MATERIALS", fg="black", bd=20,width=40, bg="white", justify='left')
+          lbl_INTERNAL_MATERIALS.grid(row=7, column=0)
+          ent_INTERNAL_MATERIALS = Entry(Fram01, font=('arial', 12, 'bold'), textvariable=INTERNAL_MATERIALS, fg="black",bd=20, width=40, bg="white", justify='left')
+          ent_INTERNAL_MATERIALS.grid(row=7, column=1)
+          a0 = (new.get("INTERNAL MATERIAL/S:"))
+          ent_INTERNAL_MATERIALS.insert(0, a0)
+          print(ent_INTERNAL_MATERIALS.get())
+        elif i == "VOLTAGE:":
+          lbl_VOLTAGE = Label(Fram01, font=('arial', 12, 'bold'), text="VOLTAGE", fg="black", bd=20, width=10 ,bg="white",justify='left')
+          lbl_VOLTAGE.grid(row=8, column=0)
+          ent_VOLTAGE = Entry(Fram01, font=('arial', 12, 'bold'), textvariable=VOLTAGE, fg="black", bd=20, width=10,bg="white", justify='left')
+          ent_VOLTAGE.grid(row=8, column=1)
+          a0 = (new.get("VOLTAGE:"))
+          ent_VOLTAGE.insert(0, a0)
+          print(ent_VOLTAGE.get())
+        elif i == "SIZE:":
+          lbl_SIZE = Label(Fram01, font=('arial', 12, 'bold'), text="SIZE", fg="black", bd=20, width=10 bg="white",justify='left')
+          lbl_SIZE.grid(row=9, column=0)
+          ent_SIZE = Entry(Fram01, font=('arial', 12, 'bold'), textvariable=SIZE, fg="black", bd=20, width=10 bg="white",justify='left')
+          ent_SIZE.grid(row=9, column=1)
+          a0 = (new.get("SIZE:"))
+          ent_SIZE.insert(0, a0)
+          print(ent_SIZE.get())
+        elif i == "CONNECTION:":
+          lbl_CONNECTION = Label(Fram01, font=('arial', 12, 'bold'), text="CONNECTION", fg="black", bd=20, width=10bg="white", justify='left')
+          lbl_CONNECTION.grid(row=10, column=0)
+          ent_CONNECTION = Entry(Fram01, font=('arial', 12, 'bold'), textvariable=CONNECTION, fg="black", bd=20, width=10bg="white", justify='left')
+          ent_CONNECTION.grid(row=10, column=1)
+          a0 = (new.get("CONNECTION:"))
+          ent_CONNECTION.insert(0, a0)
+          print(ent_CONNECTION.get())
+        elif i == "STANDARD/SPECIFICATION:":
+          lbl_STANDARD_SPECIFICATION = Label(Fram01, font=('arial', 12, 'bold'), text="STANDARD_SPECIFICATION", fg="black",bd=20, width=10 bg="white", justify='left')
+          lbl_STANDARD_SPECIFICATION.grid(row=11, column=0)
+          ent_STANDARD_SPECIFICATION = Entry(Fram01, font=('arial', 12, 'bold'), textvariable=STANDARD_SPECIFICATION,fg="black", bd=20, width=10 bg="white", justify='left')
+          ent_STANDARD_SPECIFICATION.grid(row=11, column=1)
+          a0 = (new.get("STANDARD/SPECIFICATION:"))
+          ent_STANDARD_SPECIFICATION.insert(0, a0)
+          print(ent_STANDARD_SPECIFICATION.get())
+        elif i == "ADDITIONAL DATA:":
+          lbl_ADDITIONAL_DATA = Label(Fram01, font=('arial', 12, 'bold'), text="ADDITIONAL_DATA", fg="black", bd=20,width=10 bg="white", justify='left')
+          lbl_ADDITIONAL_DATA.grid(row=12, column=0)
+          ent_ADDITIONAL_DATA = Entry(Fram01, font=('arial', 12, 'bold'), textvariable=ADDITIONAL_DATA, fg="black", bd=20,width=10 bg="white", justify='left')
+          ent_ADDITIONAL_DATA.grid(row=12, column=1)
+          a0 = (new.get("ADDITIONAL DATA:"))
+          ent_ADDITIONAL_DATA.insert(0, a0)
+          print(ent_ADDITIONAL_DATA.get())
+        elif i == "AMP HOURS:":
+          lbl_AMP_HOURS = Label(Fram01, font=('arial', 12, 'bold'), text="AMP_HOURS", fg="black", bd=20,width=10 bg="white", justify='left')
+          lbl_AMP_HOURS.grid(row=12, column=0)
+          ent_AMP_HOURS = Entry(Fram01, font=('arial', 12, 'bold'), textvariable=AMP_HOURS, fg="black", bd=20,width=10 bg="white", justify='left')
+          ent_AMP_HOURS.grid(row=12, column=1)
+          a0 = (new.get("AMP HOURS:"))
+          ent_AMP_HOURS.insert(0, a0)
+          print(ent_AMP_HOURS.get())
+        elif i == "GROUP SIZE:":
+          lbl_GROUP_SIZE = Label(Fram01, font=('arial', 12, 'bold'), text="GROUP_SIZE", fg="black", bd=20,width=10 bg="white", justify='left')
+          lbl_GROUP_SIZE.grid(row=12, column=0)
+          ent_GROUP_SIZE = Entry(Fram01, font=('arial', 12, 'bold'), textvariable=GROUP_SIZE, fg="black", bd=20,width=10 bg="white", justify='left')
+          ent_GROUP_SIZE.grid(row=12, column=1)
+          a0 = (new.get("GROUP SIZE:"))
+          ent_GROUP_SIZE.insert(0, a0)
+          print(ent_GROUP_SIZE.get())
+        elif i == "CELLS:":
+          lbl_CELLS = Label(Fram01, font=('arial', 12, 'bold'), text="CELLS", fg="black", bd=20,width=10 bg="white", justify='left')
+          lbl_CELLS.grid(row=12, column=0)
+          ent_CELLS = Entry(Fram01, font=('arial', 12, 'bold'), textvariable=CELLS, fg="black", bd=20,width=10 bg="white", justify='left')
+          ent_CELLS.grid(row=12, column=1)
+          a0 = (new.get("CELLS:"))
+          ent_CELLS.insert(0, a0)
+          print(ent_CELLS.get())
 
-      lbl_RFQ_NO = Label(Fram01, font=('arial', 12, 'bold'), text="RFQ_NO", fg="black", bd=20, width=16, bg="white",justify='left')
-      lbl_RFQ_NO.grid(row=1, column=0)
-      ent_RFQ_NO = Entry(Fram01, font=('arial', 12, 'bold'), textvariable=RFQ_no, fg="black", bd=20, width=40,bg="white", justify='left')
-      ent_RFQ_NO.grid(row=1, column=1)
-      ent_RFQ_NO.insert(0, RFQ_no)
-      print(ent_RFQ_NO.get())
+          '''
+        elif i == "SIZE:":
+          lbl_ADDITIONAL_DATA = Label(Fram01, font=('arial', 12, 'bold'), text="ADDITIONAL_DATA", fg="black", bd=20,width=10 bg="white", justify='left')
+          lbl_ADDITIONAL_DATA.grid(row=12, column=0)
+          ent_ADDITIONAL_DATA = Entry(Fram01, font=('arial', 12, 'bold'), textvariable=Product_Name, fg="black", bd=20,width=10 bg="white", justify='left')
+          ent_ADDITIONAL_DATA.grid(row=12, column=1)
+          a0 = (new.get("ADDITIONAL DATA:"))
+          ent_ADDITIONAL_DATA.insert(0, a0)
+          print(ent_ADDITIONAL_DATA.get())
+        elif i == "SIZE:":
+        elif i == "SIZE:":
+        elif i == "SIZE:":
+        elif i == "SIZE:":
+        elif i == "SIZE:":
+        elif i == "SIZE:":
+'''
+        
 
+          
+
+
+      
       lbl_BID_OPEN = Label(Fram01, font=('arial', 12, 'bold'), text="BID_OPEN", fg="black", bd=20, width=40,bg="white", justify='left')
       lbl_BID_OPEN.grid(row=2, column=0)
       ent_BID_OPEN = Entry(Fram01, font=('arial', 12, 'bold'), textvariable=Bid_open, fg="black", bd=20, width=40,
@@ -136,79 +229,23 @@ with pdfplumber.open("2.pdf") as pdf:
       ent_REQ_QTY.grid(row=6, column=1)
       ent_REQ_QTY.insert(0, Req_Qty)
       print(ent_REQ_QTY.get())
-
       # ---------------------------------------------INTERNAL_MATERIALS
+      
+
+        
+
+
+          
+          
+       elif i == "SIZE:":
+
       # 01
-      lbl_INTERNAL_MATERIALS = Label(Fram01, font=('arial', 12, 'bold'), text="INTERNAL_MATERIALS", fg="black", bd=20,
-                                     width=40, bg="white", justify='left')
-      lbl_INTERNAL_MATERIALS.grid(row=7, column=0)
-      ent_INTERNAL_MATERIALS = Entry(Fram01, font=('arial', 12, 'bold'), textvariable=INTERNAL_MATERIALS, fg="black",
-                                     bd=20, width=40, bg="white", justify='left')
-      ent_INTERNAL_MATERIALS.grid(row=7, column=1)
-      a0 = (new.get("INTERNAL MATERIAL/S:"))
-      ent_INTERNAL_MATERIALS.insert(0, a0)
-      print(ent_INTERNAL_MATERIALS.get())
 
       # 02
-      lbl_VOLTAGE = Label(Fram01, font=('arial', 12, 'bold'), text="VOLTAGE", fg="black", bd=20, width=40, bg="white",
-                          justify='left')
-      lbl_VOLTAGE.grid(row=8, column=0)
-      ent_VOLTAGE = Entry(Fram01, font=('arial', 12, 'bold'), textvariable=VOLTAGE, fg="black", bd=20, width=40,
-                          bg="white", justify='left')
-      ent_VOLTAGE.grid(row=8, column=1)
-      a0 = (new.get("VOLTAGE:"))
-      ent_VOLTAGE.insert(0, a0)
-      print(ent_VOLTAGE.get())
       # 03
-      lbl_SIZE = Label(Fram01, font=('arial', 12, 'bold'), text="SIZE", fg="black", bd=20, width=40, bg="white",
-                       justify='left')
-      lbl_SIZE.grid(row=9, column=0)
-      ent_SIZE = Entry(Fram01, font=('arial', 12, 'bold'), textvariable=SIZE, fg="black", bd=20, width=40, bg="white",
-                       justify='left')
-      ent_SIZE.grid(row=9, column=1)
-      a0 = (new.get("SIZE:"))
-      ent_SIZE.insert(0, a0)
-      print(ent_SIZE.get())
       # 04
-      lbl_CONNECTION = Label(Fram01, font=('arial', 12, 'bold'), text="CONNECTION", fg="black", bd=20, width=40,
-                             bg="white", justify='left')
-      lbl_CONNECTION.grid(row=10, column=0)
-      ent_CONNECTION = Entry(Fram01, font=('arial', 12, 'bold'), textvariable=CONNECTION, fg="black", bd=20, width=40,
-                             bg="white", justify='left')
-      ent_CONNECTION.grid(row=10, column=1)
-      a0 = (new.get("CONNECTION:"))
-      ent_CONNECTION.insert(0, a0)
-      print(ent_CONNECTION.get())
       # 05
-      lbl_STANDARD_SPECIFICATION = Label(Fram01, font=('arial', 12, 'bold'), text="STANDARD_SPECIFICATION", fg="black",
-                                         bd=20, width=40, bg="white", justify='left')
-      lbl_STANDARD_SPECIFICATION.grid(row=11, column=0)
-      ent_STANDARD_SPECIFICATION = Entry(Fram01, font=('arial', 12, 'bold'), textvariable=STANDARD_SPECIFICATION,
-                                         fg="black", bd=20, width=40, bg="white", justify='left')
-      ent_STANDARD_SPECIFICATION.grid(row=11, column=1)
-      a0 = (new.get("STANDARD/SPECIFICATION:"))
-      ent_STANDARD_SPECIFICATION.insert(0, a0)
-      print(ent_STANDARD_SPECIFICATION.get())
       # 06
-      lbl_ADDITIONAL_DATA = Label(Fram01, font=('arial', 12, 'bold'), text="ADDITIONAL_DATA", fg="black", bd=20,
-                                  width=40, bg="white", justify='left')
-      lbl_ADDITIONAL_DATA.grid(row=12, column=0)
-      ent_ADDITIONAL_DATA = Entry(Fram01, font=('arial', 12, 'bold'), textvariable=ADDITIONAL_DATA, fg="black", bd=20,
-                                  width=40, bg="white", justify='left')
-      ent_ADDITIONAL_DATA.grid(row=12, column=1)
-      a0 = (new.get("ADDITIONAL DATA:"))
-      ent_ADDITIONAL_DATA.insert(0, a0)
-      print(ent_ADDITIONAL_DATA.get())
-
-      lbl_ADDITIONAL_DATA = Label(Fram01, font=('arial', 12, 'bold'), text="ADDITIONAL_DATA", fg="black", bd=20,
-                                  width=40, bg="white", justify='left')
-      lbl_ADDITIONAL_DATA.grid(row=12, column=0)
-      ent_ADDITIONAL_DATA = Entry(Fram01, font=('arial', 12, 'bold'), textvariable=Product_Name, fg="black", bd=20,
-                                  width=40, bg="white", justify='left')
-      ent_ADDITIONAL_DATA.grid(row=12, column=1)
-      a0 = (new.get("ADDITIONAL DATA:"))
-      ent_ADDITIONAL_DATA.insert(0, a0)
-      print(ent_ADDITIONAL_DATA.get())
 
 
 
