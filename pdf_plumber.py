@@ -71,7 +71,8 @@ with pdfplumber.open("2.pdf") as pdf:
 
   mytext = Text(Fram00, height = 40)
   mytext.grid()
-  mytext.insert("1.0",b1)
+  mytext.insert("1.0","Product_Name")
+  mytext.insert("2.0",b1)
 
 
   def v():
@@ -258,11 +259,11 @@ with pdfplumber.open("2.pdf") as pdf:
   def insert():
       db = mysql.connector.connect(user='root', passwd='12345678', host='localhost', database='naizak')
       cursor = db.cursor()
-      #sql = 'INSERT INTO BATTERY (Bayer_Telphone,Req_Unit,Req_Qty,INTERNAL_MATERIALS,Product_Name,VOLTAGE,SIZE,CONNECTION,STANDARD_SPECIFICATION,ADDITIONAL_DATA,AMP_HOURS,GROUP_SIZE,CELLS) values (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)  '
-      #val = (Bayer_Telphone.get(),Req_Unit.get(),Req_Qty.get(),INTERNAL_MATERIALS.get(),Product_Name.get(),VOLTAGE.get(),SIZE.get(),CONNECTION.get(),STANDARD_SPECIFICATION.get(),ADDITIONAL_DATA.get(),AMP_HOURS.get(),GROUP_SIZE.get(),CELLS.get())
+      sql = 'INSERT INTO BATTERY (Bayer_Telphone,Req_Unit,Req_Qty,INTERNAL_MATERIALS,Product_Name,VOLTAGE,SIZE,CONNECTION,STANDARD_SPECIFICATION,ADDITIONAL_DATA,AMP_HOURS,GROUP_SIZE,CELLS) values (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)  '
+      val = (Bayer_Telphone.get(),Req_Unit.get(),Req_Qty.get(),INTERNAL_MATERIALS.get(),Product_Name.get(),VOLTAGE.get(),SIZE.get(),CONNECTION.get(),STANDARD_SPECIFICATION.get(),ADDITIONAL_DATA.get(),AMP_HOURS.get(),GROUP_SIZE.get(),CELLS.get())
 
-      sql = 'INSERT INTO BATTERY7 (Product_Name,INTERNAL_MATERIALS,  VOLTAGE,SIZE, CONNECTION, STANDARD_SPECIFICATION, ADDITIONAL_DATA) values ( %s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)  '
-      val = (Product_Name.get(),INTERNAL_MATERIALS.get(),VOLTAGE.get(), SIZE.get(), CONNECTION.get(),STANDARD_SPECIFICATION.get(), ADDITIONAL_DATA.get())
+      #sql = 'INSERT INTO BATTERY7 (Product_Name,INTERNAL_MATERIALS,  VOLTAGE,SIZE, CONNECTION, STANDARD_SPECIFICATION, ADDITIONAL_DATA) values ( %s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)  '
+      #val = (Product_Name.get(),INTERNAL_MATERIALS.get(),VOLTAGE.get(), SIZE.get(), CONNECTION.get(),STANDARD_SPECIFICATION.get(), ADDITIONAL_DATA.get())
 
 
       # cursor.execute('INSERT INTO BATTERY (Product_Name) values ( %s )',(Product_Name.get()))
